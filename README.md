@@ -30,14 +30,14 @@ curl -sL install-node.vercel.app/lts | bash
 ```
 
 Theme:
-https://github.com/joshdick/onedark.vim
-nvim .vim/colors/onedark.vim
-nvim .vim/autoload/onedark.vim
+- https://github.com/joshdick/onedark.vim
+- nvim .vim/colors/onedark.vim
+- nvim .vim/autoload/onedark.vim
 
 Other links:
-https://www.vimfromscratch.com/articles/vim-for-python
-https://github.com/pdbpp/pdbpp
+- https://www.vimfromscratch.com/articles/vim-for-python
+- https://github.com/pdbpp/pdbpp
 
-info:
-.local/share/nvim/site/autoload/plug.vim
-.local/share/nvim/plugged
+Info:
+- .local/share/nvim/site/autoload/plug.vim
+- .local/share/nvim/plugged
