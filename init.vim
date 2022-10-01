@@ -23,7 +23,11 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
 
-" Initialize plugin system.
+  " C auto-completion
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'zchee/deoplete-clang'
+
+  " Initialize plugin system.
 call plug#end()
 
 
@@ -60,6 +64,16 @@ set ruler
 
 " set columndisplay
 set colorcolumn=88
+			\
+" make sure that spaces are use with tab button
+set expandtab
+
+" insert a n number of spaces, here n=4
+set tabstop=4
+
+" insert n number of spaces with << & >> commands
+set shiftwidth=4
+
 
 " ------------------------
 " ----------Alias---------
@@ -77,6 +91,21 @@ nnoremap <space> za
 " change leader key
 let mapleader = ","
 
+
+" ------------------------
+" ------------C-----------
+" ------------------------
+
+" custom setting for clangformat
+let g:neoformat_cpp_clangformat = {
+    \ 'exe': 'clang-format',
+        \ 'args': ['--style="{IndentWidth: 4}"']
+        \}
+        let g:neoformat_enabled_cpp = ['clangformat']
+        let g:neoformat_enabled_c = ['clangformat']
+}
+
+
 " ------------------------
 " --------Plugins---------
 " ------------------------
@@ -87,6 +116,8 @@ let mapleader = ","
 let g:ale_linters = {
       \   'python': ['flake8', 'pylint'],
       \   'javascript': ['eslint'],
+      \   'cpp': ['clang'],
+      \   'c': ['clang']
       \}
 
 " Press F10 to active or save the current buffer.
@@ -226,9 +257,11 @@ let g:terraform_registry_module_completion = 0
 
 
 " TELESCOP OPTIONS
-
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
+
