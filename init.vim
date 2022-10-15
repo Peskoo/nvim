@@ -74,6 +74,11 @@ set tabstop=4
 " insert n number of spaces with << & >> commands
 set shiftwidth=4
 
+" disable mouse right click
+set mouse=
+
+" enable copy paste with good syntax
+set paste
 
 " ------------------------
 " ----------Alias---------
